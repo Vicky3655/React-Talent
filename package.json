@@ -1,0 +1,16 @@
+{
+  "name": "talent-flow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Talent Flow learning management web application",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -c server.js && node -c data-store.js && node -c students.js",
+    "lint": "node -c server.js && node -c data-store.js && node -c students.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
