@@ -1,0 +1,294 @@
+/* ── Choose Role Page ─────────────────────────────────────── */
+.tf-role-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  min-height: 100vh;
+}
+
+.tf-role-page .role-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.tf-role-page .role-card-outer {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
+  padding: 44px 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+.tf-role-page .role-card-outer h1 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.tf-role-page .role-sub {
+  color: #64748B;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+.tf-role-page .role-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.tf-role-page .role-radio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.tf-role-page .role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: 22px 12px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tf-role-page .role-card:hover {
+  border-color: #93C5FD;
+  background-color: #F8FAFC;
+}
+
+.tf-role-page .role-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFF6FF;
+  color: #2563EB;
+  margin-bottom: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tf-role-page .role-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.tf-role-page .role-card-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0F172A;
+}
+
+.tf-role-page .role-card-desc {
+  font-size: 12.5px;
+  color: #64748B;
+}
+
+.tf-role-page .role-radio:checked + .role-card {
+  border-color: #2563EB;
+  background-color: #EFF6FF;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+}
+
+.tf-role-page .role-radio:checked + .role-card .role-card-icon {
+  background-color: #2563EB;
+  color: #FFFFFF;
+}
+
+.tf-role-page .role-radio:focus-visible + .role-card {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
+
+.tf-role-page .role-status {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563EB;
+  margin-bottom: 4px;
+}
+
+.tf-role-page .btn-text-muted {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.tf-role-page .btn-text-muted:hover {
+  color: #2563EB;
+}
+
+@media (max-width: 480px) {
+  .tf-role-page .role-card-outer {
+    padding: 32px 22px;
+  }
+  .tf-role-page .role-picker {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Verify Email & Auth Callback Pages ───────────────────── */
+.tf-verify-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  min-height: 100vh;
+}
+
+.tf-verify-page .verify-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.tf-verify-page .verify-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
+  padding: 44px 40px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+}
+
+.tf-verify-page .verify-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #EFF6FF;
+  color: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.tf-verify-page .verify-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.tf-verify-page .verify-card h1 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.tf-verify-page .verify-sub {
+  color: #64748B;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.tf-verify-page .verify-sub strong {
+  color: #0F172A;
+}
+
+.tf-verify-page .btn-primary {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.tf-verify-page .btn-primary:hover:not(:disabled) {
+  background-color: #1D4ED8;
+}
+
+.tf-verify-page .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tf-verify-page .btn-secondary {
+  background-color: #FFFFFF;
+  color: #2563EB;
+  border: 1.5px solid #DBEAFE;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.tf-verify-page .btn-secondary:hover:not(:disabled) {
+  background-color: #EFF6FF;
+  border-color: #2563EB;
+}
+
+.tf-verify-page .btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tf-verify-page .full {
+  width: 100%;
+}
+
+.tf-verify-page .verify-card .btn-secondary {
+  margin-top: 10px;
+}
+
+.tf-verify-page .verify-hint {
+  min-height: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+.tf-verify-page .verify-hint.error { color: #DC2626; }
+.tf-verify-page .verify-hint.success { color: #16A34A; }
+.tf-verify-page .verify-hint.muted { color: #94A3B8; font-weight: 500; }
+
+.tf-verify-page .btn-text-muted {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 22px;
+  padding: 0;
+}
+
+.tf-verify-page .btn-text-muted:hover {
+  color: #2563EB;
+}
+
+@media (max-width: 480px) {
+  .tf-verify-page .verify-card {
+    padding: 32px 22px;
+  }
+}

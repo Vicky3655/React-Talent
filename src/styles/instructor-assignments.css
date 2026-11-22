@@ -1,0 +1,841 @@
+/* ============================================================
+   TALENT FLOW — Instructor Assignments Page
+   ============================================================ */
+
+.tf-inst-assign .content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tf-inst-assign .header-left h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.tf-inst-assign .header-sub {
+  font-size: 14px;
+  color: #64748B;
+  margin-top: 3px;
+}
+
+.tf-inst-assign .add-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563EB;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+
+.tf-inst-assign .add-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tf-inst-assign .add-btn:hover {
+  background: #1D4ED8;
+}
+
+.tf-inst-assign .summary-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tf-inst-assign .s-card {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.tf-inst-assign .s-card:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.tf-inst-assign .s-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-inst-assign .s-label {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.tf-inst-assign .s-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1;
+}
+
+.tf-inst-assign .toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tf-inst-assign .filters {
+  display: flex;
+  gap: 4px;
+  background: #F1F5F9;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.tf-inst-assign .filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  color: #64748B;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.15s;
+}
+
+.tf-inst-assign .filter-btn.active {
+  background: #2563EB;
+  color: white;
+}
+
+.tf-inst-assign .filter-btn:not(.active):hover {
+  background: #E2E8F0;
+}
+
+.tf-inst-assign .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tf-inst-assign .dot.published { background: #22C55E; }
+.tf-inst-assign .dot.draft { background: #CBD5E1; }
+.tf-inst-assign .dot.closed { background: #DC2626; }
+
+.tf-inst-assign .search-wrap {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F1F5F9;
+  border-radius: 10px;
+  padding: 9px 14px;
+  border: 1px solid transparent;
+}
+
+.tf-inst-assign .search-wrap:focus-within {
+  border-color: #2563EB;
+  background: white;
+}
+
+.tf-inst-assign .search-wrap svg {
+  width: 16px;
+  height: 16px;
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+.tf-inst-assign .search-wrap input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #0F172A;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-assign .sort-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  margin-left: auto;
+}
+
+.tf-inst-assign .sort-btn:hover {
+  background: #1D4ED8;
+}
+
+.tf-inst-assign .table-wrap {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.tf-inst-assign .table-header {
+  display: grid;
+  grid-template-columns: 3.4fr 1.1fr 1.1fr 1fr 1.3fr;
+  background: #2563EB;
+  padding: 14px 24px;
+}
+
+.tf-inst-assign .table-header span {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tf-inst-assign .table-body {
+  overflow-x: auto;
+}
+
+.tf-inst-assign .assignment-row {
+  display: grid;
+  grid-template-columns: 3.4fr 1.1fr 1.1fr 1fr 1.3fr;
+  padding: 16px 24px;
+  border-bottom: 1px solid #F1F5F9;
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.tf-inst-assign .assignment-row:last-child {
+  border-bottom: none;
+}
+
+.tf-inst-assign .assignment-row:hover {
+  background: #F8FAFC;
+}
+
+.tf-inst-assign .row-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.tf-inst-assign .row-course {
+  font-size: 12.5px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.tf-inst-assign .row-due {
+  font-size: 13px;
+  color: #334155;
+}
+
+.tf-inst-assign .sub-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.tf-inst-assign .sub-count.has-pending { background: #FEF3C7; color: #92400E; }
+.tf-inst-assign .sub-count.all-graded { background: #F0FDF4; color: #14532D; }
+.tf-inst-assign .sub-count.no-subs { background: #F1F5F9; color: #64748B; }
+
+.tf-inst-assign .status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.tf-inst-assign .status-badge.published { background: #DCFCE7; color: #166534; }
+.tf-inst-assign .status-badge.draft { background: #F1F5F9; color: #64748B; }
+.tf-inst-assign .status-badge.closed { background: #FEF2F2; color: #991B1B; }
+
+.tf-inst-assign .row-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tf-inst-assign .action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.tf-inst-assign .action-btn:hover { opacity: 0.85; }
+.tf-inst-assign .action-btn.grade { background: #EFF6FF; color: #1D4ED8; }
+.tf-inst-assign .action-btn.edit { background: #E0E7FF; color: #3730A3; }
+.tf-inst-assign .action-btn.delete { background: #FEF2F2; color: #991B1B; }
+
+.tf-inst-assign .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.tf-inst-assign .empty-icon {
+  color: #CBD5E1;
+  margin-bottom: 16px;
+}
+
+.tf-inst-assign .empty-state h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tf-inst-assign .empty-state p {
+  font-size: 14px;
+  color: #64748B;
+  max-width: 320px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.tf-inst-assign .create-btn {
+  background: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Modals */
+.tf-inst-assign .modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.48);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 16px;
+}
+
+.tf-inst-assign .modal.open {
+  display: flex;
+}
+
+.tf-inst-assign .modal-content {
+  background: white;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 500px;
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tf-inst-assign .modal-wide {
+  max-width: 720px;
+}
+
+.tf-inst-assign .modal-content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #0F172A;
+}
+
+.tf-inst-assign .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: #F1F5F9;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf-inst-assign .close-btn:hover {
+  background: #E2E8F0;
+}
+
+.tf-inst-assign .modal-content label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin: 16px 0 6px;
+}
+
+.tf-inst-assign .req {
+  color: #DC2626;
+  margin-left: 2px;
+}
+
+.tf-inst-assign .modal-content input[type='text'],
+.tf-inst-assign .modal-content input[type='date'],
+.tf-inst-assign .modal-content input[type='number'],
+.tf-inst-assign .modal-content select,
+.tf-inst-assign .modal-content textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #E2E8F0;
+  border-radius: 9px;
+  font-size: 14px;
+  color: #0F172A;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  background: white;
+}
+
+.tf-inst-assign .modal-content input:focus,
+.tf-inst-assign .modal-content select:focus,
+.tf-inst-assign .modal-content textarea:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tf-inst-assign .modal-content textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.tf-inst-assign .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.tf-inst-assign .assign-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.tf-inst-assign .radio-label {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #334155;
+  cursor: pointer;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+
+.tf-inst-assign .radio-label input {
+  accent-color: #2563EB;
+  width: 16px;
+  height: 16px;
+}
+
+.tf-inst-assign .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.tf-inst-assign .cancel-btn {
+  padding: 10px 22px;
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #334155;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-assign .submit-btn {
+  padding: 10px 24px;
+  background: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-assign .grade-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-right: 36px;
+}
+
+.tf-inst-assign .grade-modal-sub {
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 3px;
+}
+
+.tf-inst-assign .grade-modal-stats {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.tf-inst-assign .gm-stat {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #F1F5F9;
+  color: #64748B;
+}
+
+.tf-inst-assign .gm-stat.accent {
+  background: #FFF7ED;
+  color: #D97706;
+}
+
+.tf-inst-assign .submissions-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-inst-assign .sub-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 4px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.tf-inst-assign .sub-row:last-child {
+  border-bottom: none;
+}
+
+.tf-inst-assign .sub-row-end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.tf-inst-assign .sub-student {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.tf-inst-assign .sub-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid #E2E8F0;
+}
+
+.tf-inst-assign .sub-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.tf-inst-assign .sub-date {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.tf-inst-assign .sub-grade-display {
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 60px;
+  text-align: right;
+}
+
+.tf-inst-assign .sub-grade-display.graded { color: #16A34A; }
+.tf-inst-assign .sub-grade-display.pending { color: #D97706; }
+
+.tf-inst-assign .grade-action-btn {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.tf-inst-assign .grade-action-btn.give-grade { background: #2563EB; color: white; }
+.tf-inst-assign .grade-action-btn.re-grade { background: #F1F5F9; color: #334155; }
+
+.tf-inst-assign .student-grade-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.tf-inst-assign .sgh-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #BFDBFE;
+}
+
+.tf-inst-assign .sgh-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.tf-inst-assign .sgh-course {
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.tf-inst-assign .submission-preview {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.tf-inst-assign .sp-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94A3B8;
+  margin-bottom: 8px;
+}
+
+.tf-inst-assign .sp-content {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #334155;
+  white-space: pre-line;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.tf-inst-assign .sp-content.sp-empty {
+  color: #94A3B8;
+  font-style: italic;
+}
+
+.tf-inst-assign .sp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2563EB;
+  text-decoration: none;
+  padding: 6px 12px;
+  background: #EFF6FF;
+  border-radius: 8px;
+}
+
+.tf-inst-assign .score-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tf-inst-assign .score-row input {
+  width: 90px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px 12px !important;
+}
+
+.tf-inst-assign .score-sep { font-size: 20px; color: #CBD5E1; font-weight: 300; }
+.tf-inst-assign .score-max { font-size: 18px; color: #64748B; font-weight: 600; }
+
+.tf-inst-assign .score-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 4px;
+}
+
+.tf-inst-assign .score-bar-track {
+  flex: 1;
+  height: 7px;
+  background: #F1F5F9;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.tf-inst-assign .score-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.3s ease, background 0.3s;
+}
+
+.tf-inst-assign .score-pct {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 36px;
+  text-align: right;
+}
+
+.tf-inst-assign .quick-feedback {
+  margin-top: 12px;
+}
+
+.tf-inst-assign .qf-label {
+  font-size: 12px;
+  color: #64748B;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.tf-inst-assign .qf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tf-inst-assign .qf-chip {
+  padding: 5px 12px;
+  background: #F1F5F9;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #334155;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-assign .qf-chip:hover {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+@media (max-width: 1100px) {
+  .tf-inst-assign .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .tf-inst-assign .table-header,
+  .tf-inst-assign .assignment-row {
+    grid-template-columns: 2.2fr 1fr 0.9fr 1.2fr;
+  }
+  .tf-inst-assign .table-header span:nth-child(3),
+  .tf-inst-assign .assignment-row .row-sub {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .tf-inst-assign .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tf-inst-assign .sort-btn {
+    margin-left: 0;
+  }
+  .tf-inst-assign .search-wrap {
+    max-width: 100%;
+  }
+  .tf-inst-assign .form-row {
+    grid-template-columns: 1fr;
+  }
+  .tf-inst-assign .sub-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+  .tf-inst-assign .sub-student {
+    flex: 1 1 100%;
+  }
+  .tf-inst-assign .sub-row-end {
+    flex: 1 1 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .tf-inst-assign .summary-cards {
+    grid-template-columns: 1fr;
+  }
+  .tf-inst-assign .table-header,
+  .tf-inst-assign .assignment-row {
+    grid-template-columns: 1fr auto;
+  }
+  .tf-inst-assign .table-header span:nth-child(4),
+  .tf-inst-assign .assignment-row .row-status,
+  .tf-inst-assign .table-header span:nth-child(2),
+  .tf-inst-assign .assignment-row .row-due {
+    display: none;
+  }
+}

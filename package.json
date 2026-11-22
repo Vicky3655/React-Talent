@@ -2,15 +2,26 @@
   "name": "talent-flow",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Talent Flow learning management web application",
-  "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
-    "build": "node -c server.js && node -c data-store.js && node -c students.js",
-    "lint": "node -c server.js && node -c data-store.js && node -c students.js"
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 3000",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "@emailjs/browser": "^5.0.3",
+    "@supabase/supabase-js": "^2.119.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "express": "^4.21.2",
+    "firebase": "^13.4.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.6",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
   }
 }

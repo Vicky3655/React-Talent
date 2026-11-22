@@ -1,0 +1,1004 @@
+/* ============================================================
+   TALENT FLOW — Student Dashboard Page
+   ============================================================ */
+
+/* ── Welcome Banner ── */
+.tf-stu-dash .welcome-banner {
+  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 60%, #3B82F6 100%);
+  border-radius: 20px;
+  padding: 28px 32px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  animation: stuSlideDown 0.5s ease both;
+}
+
+@keyframes stuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tf-stu-dash .wb-decoration {
+  position: absolute;
+  top: -40px;
+  right: 120px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.tf-stu-dash .wb-decoration::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tf-stu-dash .wb-greeting {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.tf-stu-dash .wb-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.tf-stu-dash .wb-sub {
+  font-size: 14px;
+  opacity: 0.88;
+  font-weight: 400;
+}
+
+.tf-stu-dash .wb-sub strong {
+  font-weight: 700;
+}
+
+.tf-stu-dash .wb-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.tf-stu-dash .wb-streak {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 14px 20px;
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
+}
+
+.tf-stu-dash .streak-flame {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.tf-stu-dash .streak-count {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  font-family: 'DM Mono', monospace;
+}
+
+.tf-stu-dash .streak-label {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.tf-stu-dash .dismiss-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.tf-stu-dash .dismiss-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Quick Stats ── */
+.tf-stu-dash .quick-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.tf-stu-dash .qs-card {
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: var(--shadow);
+  animation: stuCardIn 0.5s ease both;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tf-stu-dash .qs-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+@keyframes stuCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tf-stu-dash .qs-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ic);
+}
+
+.tf-stu-dash .qs-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tf-stu-dash .qs-data {
+  flex: 1;
+}
+
+.tf-stu-dash .qs-label {
+  font-size: 12px;
+  color: var(--slate-5);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.tf-stu-dash .qs-value {
+  font-size: 26px;
+  font-weight: 800;
+  font-family: 'DM Mono', monospace;
+  color: var(--slate-9);
+  line-height: 1;
+}
+
+.tf-stu-dash .qs-spark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.35;
+}
+
+/* ── Two-Column Grid ── */
+.tf-stu-dash .two-col {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: start;
+}
+
+.tf-stu-dash .col-left,
+.tf-stu-dash .col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tf-stu-dash .section-card {
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.tf-stu-dash .sc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-dash .sc-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--slate-9);
+}
+
+.tf-stu-dash .sc-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.tf-stu-dash .sc-link:hover {
+  color: var(--blue-d);
+}
+
+.tf-stu-dash .badge-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.tf-stu-dash .badge-pill.blue {
+  background: var(--blue-l);
+  color: var(--blue);
+}
+
+.tf-stu-dash .badge-pill.green {
+  background: var(--green-l);
+  color: var(--green);
+}
+
+.tf-stu-dash .badge-pill.red {
+  background: var(--red-l);
+  color: var(--red);
+}
+
+/* ── Tab Pills ── */
+.tf-stu-dash .tab-pills {
+  display: flex;
+  gap: 4px;
+}
+
+.tf-stu-dash .tab-pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate-5);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tf-stu-dash .tab-pill.active {
+  background: var(--blue-l);
+  color: var(--blue);
+}
+
+.tf-stu-dash .tab-pill:hover:not(.active) {
+  background: var(--slate-1);
+}
+
+/* ── Courses List ── */
+.tf-stu-dash .courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tf-stu-dash .course-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--slate-2);
+  border-radius: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  background: #FFFFFF;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.tf-stu-dash .course-row:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.tf-stu-dash .cr-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--slate-1);
+}
+
+.tf-stu-dash .cr-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-stu-dash .cr-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--slate-9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.tf-stu-dash .cr-meta {
+  font-size: 12px;
+  color: var(--slate-5);
+  margin-bottom: 8px;
+}
+
+.tf-stu-dash .cr-progress-bar {
+  height: 5px;
+  background: var(--slate-1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tf-stu-dash .cr-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--blue), #60A5FA);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tf-stu-dash .cr-pct {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'DM Mono', monospace;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+/* ── Assignments List ── */
+.tf-stu-dash .assign-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tf-stu-dash .assign-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--slate-2);
+  transition: border-color 0.2s;
+}
+
+.tf-stu-dash .assign-item:hover {
+  border-color: var(--slate-4);
+}
+
+.tf-stu-dash .ai-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.tf-stu-dash .ai-status-dot.pending {
+  background: #F59E0B;
+}
+
+.tf-stu-dash .ai-status-dot.submitted {
+  background: var(--blue);
+}
+
+.tf-stu-dash .ai-status-dot.graded {
+  background: var(--green);
+}
+
+.tf-stu-dash .ai-status-dot.late {
+  background: var(--red);
+}
+
+.tf-stu-dash .ai-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-stu-dash .ai-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate-9);
+  margin-bottom: 3px;
+}
+
+.tf-stu-dash .ai-course {
+  font-size: 12px;
+  color: var(--slate-5);
+  margin-bottom: 6px;
+}
+
+.tf-stu-dash .ai-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-dash .ai-due {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.tf-stu-dash .ai-due.urgent {
+  background: var(--red-l);
+  color: var(--red);
+}
+
+.tf-stu-dash .ai-due.normal {
+  background: var(--slate-1);
+  color: var(--slate-5);
+}
+
+.tf-stu-dash .ai-due.done {
+  background: var(--green-l);
+  color: var(--green);
+}
+
+.tf-stu-dash .ai-grade {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-left: auto;
+}
+
+.tf-stu-dash .ai-action-btn {
+  padding: 5px 12px;
+  background: var(--blue-l);
+  color: var(--blue);
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.tf-stu-dash .ai-action-btn:hover {
+  background: #DBEAFE;
+}
+
+.tf-stu-dash .empty-state {
+  text-align: center;
+  padding: 28px;
+  color: var(--slate-4);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf-stu-dash .empty-state svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  opacity: 0.4;
+}
+
+/* ── Weekly Chart ── */
+.tf-stu-dash .weekly-chart {
+  margin-bottom: 16px;
+}
+
+.tf-stu-dash .wc-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 100px;
+  padding: 0 4px;
+  margin-bottom: 6px;
+}
+
+.tf-stu-dash .wc-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.tf-stu-dash .wc-bar {
+  width: 100%;
+  border-radius: 6px;
+  background: var(--blue-l);
+  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s;
+  cursor: pointer;
+}
+
+.tf-stu-dash .wc-bar.today {
+  background: var(--blue);
+}
+
+.tf-stu-dash .wc-bar:hover {
+  background: var(--blue);
+  opacity: 0.85;
+}
+
+.tf-stu-dash .wc-val {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--slate-5);
+  font-family: 'DM Mono', monospace;
+}
+
+.tf-stu-dash .wc-labels {
+  display: flex;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.tf-stu-dash .wc-labels span {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: var(--slate-4);
+  font-weight: 500;
+}
+
+.tf-stu-dash .wc-summary {
+  display: flex;
+  align-items: center;
+  background: var(--slate-0);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.tf-stu-dash .wcs-item {
+  flex: 1;
+  text-align: center;
+}
+
+.tf-stu-dash .wcs-val {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: 'DM Mono', monospace;
+  color: var(--slate-9);
+}
+
+.tf-stu-dash .wcs-lbl {
+  font-size: 11px;
+  color: var(--slate-5);
+  margin-top: 2px;
+}
+
+.tf-stu-dash .wcs-sep {
+  width: 1px;
+  height: 32px;
+  background: var(--slate-2);
+}
+
+/* ── Participation Radar ── */
+.tf-stu-dash .participation-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.tf-stu-dash .radar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  justify-content: center;
+}
+
+.tf-stu-dash .rl-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--slate-5);
+  font-weight: 500;
+}
+
+.tf-stu-dash .rl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Deadlines ── */
+.tf-stu-dash .deadline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tf-stu-dash .dl-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--slate-0);
+  border: 1px solid var(--slate-1);
+  transition: border-color 0.2s;
+}
+
+.tf-stu-dash .dl-item:hover {
+  border-color: var(--slate-4);
+}
+
+.tf-stu-dash .dl-date-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-stu-dash .dl-date-box.urgent {
+  background: var(--red-l);
+}
+
+.tf-stu-dash .dl-date-box.soon {
+  background: var(--amber-l);
+}
+
+.tf-stu-dash .dl-date-box.normal {
+  background: var(--blue-l);
+}
+
+.tf-stu-dash .dl-day {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  font-family: 'DM Mono', monospace;
+}
+
+.tf-stu-dash .dl-date-box.urgent .dl-day {
+  color: var(--red);
+}
+
+.tf-stu-dash .dl-date-box.soon .dl-day {
+  color: var(--amber);
+}
+
+.tf-stu-dash .dl-date-box.normal .dl-day {
+  color: var(--blue);
+}
+
+.tf-stu-dash .dl-month {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1px;
+}
+
+.tf-stu-dash .dl-date-box.urgent .dl-month {
+  color: #FCA5A5;
+}
+
+.tf-stu-dash .dl-date-box.soon .dl-month {
+  color: #FCD34D;
+}
+
+.tf-stu-dash .dl-date-box.normal .dl-month {
+  color: #93C5FD;
+}
+
+.tf-stu-dash .dl-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-stu-dash .dl-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tf-stu-dash .dl-course {
+  font-size: 11px;
+  color: var(--slate-5);
+  margin-top: 2px;
+}
+
+.tf-stu-dash .dl-days-left {
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tf-stu-dash .dl-days-left.urgent {
+  color: var(--red);
+}
+
+.tf-stu-dash .dl-days-left.soon {
+  color: var(--amber);
+}
+
+.tf-stu-dash .dl-days-left.normal {
+  color: var(--blue);
+}
+
+/* ── Submit Modal ── */
+.tf-stu-dash .modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 16px;
+}
+
+.tf-stu-dash .modal.open {
+  display: flex;
+}
+
+.tf-stu-dash .modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  padding: 28px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+.tf-stu-dash .modal-content h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  padding-right: 36px;
+}
+
+.tf-stu-dash .modal-course-label {
+  font-size: 13px;
+  color: var(--slate-5);
+  margin-bottom: 18px;
+}
+
+.tf-stu-dash .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: var(--slate-1);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: var(--slate-5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf-stu-dash .close-btn:hover {
+  background: var(--slate-2);
+}
+
+.tf-stu-dash .upload-zone {
+  border: 2px dashed var(--slate-2);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  margin-bottom: 14px;
+}
+
+.tf-stu-dash .upload-zone:hover,
+.tf-stu-dash .upload-zone.drag-over {
+  border-color: var(--blue);
+  background: var(--blue-l);
+}
+
+.tf-stu-dash .upload-zone p {
+  font-size: 14px;
+  color: var(--slate-5);
+  margin-top: 8px;
+}
+
+.tf-stu-dash .uz-link {
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tf-stu-dash .uz-sub {
+  font-size: 12px;
+  color: var(--slate-4);
+  margin-top: 4px;
+}
+
+.tf-stu-dash .file-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--blue-l);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: var(--slate-7);
+  font-weight: 600;
+}
+
+.tf-stu-dash .modal-content textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--slate-2);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--slate-9);
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  margin-bottom: 16px;
+}
+
+.tf-stu-dash .modal-content textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tf-stu-dash .submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tf-stu-dash .submit-btn:hover {
+  background: var(--blue-d);
+}
+
+.tf-stu-dash .submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1200px) {
+  .tf-stu-dash .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-stu-dash .col-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tf-stu-dash .quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tf-stu-dash .col-right {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-stu-dash .welcome-banner {
+    padding: 20px 18px;
+    border-radius: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .tf-stu-dash .wb-name {
+    font-size: 19px;
+  }
+
+  .tf-stu-dash .wb-right {
+    justify-content: space-between;
+  }
+
+  .tf-stu-dash .wb-streak {
+    padding: 10px 16px;
+    flex: 1;
+  }
+
+  .tf-stu-dash .streak-flame,
+  .tf-stu-dash .streak-count {
+    font-size: 22px;
+  }
+
+  .tf-stu-dash .wb-decoration {
+    display: none;
+  }
+
+  .tf-stu-dash .quick-stats {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .tf-stu-dash .qs-card {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+
+  .tf-stu-dash .qs-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tf-stu-dash .qs-value {
+    font-size: 20px;
+  }
+
+  .tf-stu-dash .qs-spark {
+    display: none;
+  }
+
+  .tf-stu-dash .section-card {
+    padding: 16px 14px;
+  }
+}

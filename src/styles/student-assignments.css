@@ -1,0 +1,781 @@
+/* ============================================================
+   TALENT FLOW — Student Assignments Page
+   ============================================================ */
+
+.tf-stu-assign .page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-assign .page-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--slate-9);
+  margin-bottom: 4px;
+}
+
+.tf-stu-assign .page-sub {
+  font-size: 14px;
+  color: var(--slate-5);
+}
+
+.tf-stu-assign .header-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tf-stu-assign .chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tf-stu-assign .chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tf-stu-assign .chip-pending {
+  background: var(--amber-l);
+  color: var(--amber);
+}
+
+.tf-stu-assign .chip-pending .chip-dot {
+  background: var(--amber);
+}
+
+.tf-stu-assign .chip-submitted {
+  background: var(--blue-l);
+  color: var(--blue);
+}
+
+.tf-stu-assign .chip-submitted .chip-dot {
+  background: var(--blue);
+}
+
+.tf-stu-assign .chip-graded {
+  background: var(--green-l);
+  color: var(--green);
+}
+
+.tf-stu-assign .chip-graded .chip-dot {
+  background: var(--green);
+}
+
+/* ── Filter Bar ── */
+.tf-stu-assign .filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-assign .tab-pills {
+  display: flex;
+  gap: 4px;
+}
+
+.tf-stu-assign .tab-pill {
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-5);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.tf-stu-assign .tab-pill.active {
+  background: var(--blue-l);
+  color: var(--blue);
+}
+
+.tf-stu-assign .tab-pill:hover:not(.active) {
+  background: var(--slate-1);
+}
+
+.tf-stu-assign .search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: 10px;
+  padding: 9px 14px;
+  min-width: 220px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tf-stu-assign .search-wrap:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tf-stu-assign .search-wrap svg {
+  width: 16px;
+  height: 16px;
+  color: var(--slate-4);
+  flex-shrink: 0;
+}
+
+.tf-stu-assign .search-wrap input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: var(--slate-9);
+  width: 100%;
+  font-family: inherit;
+}
+
+/* ── Assignment Cards Grid ── */
+.tf-stu-assign .assignments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 18px;
+}
+
+.tf-stu-assign .asgn-card {
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tf-stu-assign .asgn-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  border-color: #BFDBFE;
+}
+
+.tf-stu-assign .asgn-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.tf-stu-assign .asgn-card.status-pending::before {
+  background: var(--amber);
+}
+
+.tf-stu-assign .asgn-card.status-submitted::before {
+  background: var(--blue);
+}
+
+.tf-stu-assign .asgn-card.status-graded::before {
+  background: var(--green);
+}
+
+.tf-stu-assign .asgn-card.status-late::before {
+  background: var(--red);
+}
+
+.tf-stu-assign .card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tf-stu-assign .card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--slate-9);
+  line-height: 1.3;
+}
+
+.tf-stu-assign .status-badge {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.tf-stu-assign .status-badge.pending {
+  background: var(--amber-l);
+  color: var(--amber);
+}
+
+.tf-stu-assign .status-badge.submitted {
+  background: var(--blue-l);
+  color: var(--blue);
+}
+
+.tf-stu-assign .status-badge.graded {
+  background: var(--green-l);
+  color: var(--green);
+}
+
+.tf-stu-assign .status-badge.late {
+  background: var(--red-l);
+  color: var(--red);
+}
+
+.tf-stu-assign .card-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-assign .meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--slate-5);
+}
+
+.tf-stu-assign .meta-item svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.tf-stu-assign .meta-item strong {
+  color: var(--slate-7);
+  font-weight: 600;
+}
+
+.tf-stu-assign .meta-item.urgent strong {
+  color: var(--red);
+}
+
+.tf-stu-assign .meta-item.soon strong {
+  color: var(--amber);
+}
+
+.tf-stu-assign .card-grade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--green-l);
+  border-radius: 10px;
+}
+
+.tf-stu-assign .grade-score {
+  font-family: 'DM Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+
+.tf-stu-assign .grade-score span {
+  font-size: 14px;
+  color: #4ADE80;
+}
+
+.tf-stu-assign .grade-bar-wrap {
+  flex: 1;
+}
+
+.tf-stu-assign .grade-bar-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 5px;
+}
+
+.tf-stu-assign .grade-bar-bg {
+  height: 6px;
+  background: #BBF7D0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tf-stu-assign .grade-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--green), #4ADE80);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tf-stu-assign .card-submitted {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--blue-l);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.tf-stu-assign .card-submitted svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.tf-stu-assign .card-footer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.tf-stu-assign .btn-submit {
+  flex: 1;
+  padding: 10px 16px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tf-stu-assign .btn-submit:hover {
+  background: var(--blue-d);
+}
+
+.tf-stu-assign .btn-submit svg {
+  width: 15px;
+  height: 15px;
+}
+
+.tf-stu-assign .btn-view-grade {
+  flex: 1;
+  padding: 10px 16px;
+  background: var(--green-l);
+  color: var(--green);
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tf-stu-assign .btn-view-grade:hover {
+  background: #BBF7D0;
+}
+
+.tf-stu-assign .btn-view-grade svg {
+  width: 15px;
+  height: 15px;
+}
+
+.tf-stu-assign .btn-resubmit {
+  padding: 10px 14px;
+  background: var(--slate-1);
+  color: var(--slate-5);
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tf-stu-assign .btn-resubmit:hover {
+  background: var(--slate-2);
+  color: var(--slate-7);
+}
+
+.tf-stu-assign .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--slate-4);
+  text-align: center;
+}
+
+.tf-stu-assign .empty-state svg {
+  margin-bottom: 14px;
+  opacity: 0.35;
+}
+
+.tf-stu-assign .empty-state p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ── Modals ── */
+.tf-stu-assign .modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+
+.tf-stu-assign .modal.open {
+  display: flex;
+}
+
+.tf-stu-assign .modal-box {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  padding: 28px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tf-stu-assign .modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--slate-1);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--slate-5);
+}
+
+.tf-stu-assign .modal-close:hover {
+  background: var(--slate-2);
+}
+
+.tf-stu-assign .modal-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.tf-stu-assign .modal-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--blue-l);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--blue);
+}
+
+.tf-stu-assign .modal-icon.grade-icon {
+  background: var(--green-l);
+  color: var(--green);
+}
+
+.tf-stu-assign .modal-header h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--slate-9);
+}
+
+.tf-stu-assign .modal-sub {
+  font-size: 13px;
+  color: var(--slate-5);
+  margin-top: 2px;
+}
+
+.tf-stu-assign .modal-due-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--slate-5);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.tf-stu-assign .upload-zone {
+  border: 2px dashed var(--slate-2);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  margin-bottom: 14px;
+}
+
+.tf-stu-assign .upload-zone:hover,
+.tf-stu-assign .upload-zone.drag-over {
+  border-color: var(--blue);
+  background: var(--blue-l);
+}
+
+.tf-stu-assign .uz-main {
+  font-size: 14px;
+  color: var(--slate-5);
+  margin-top: 10px;
+}
+
+.tf-stu-assign .uz-link {
+  color: var(--blue);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tf-stu-assign .uz-sub {
+  font-size: 12px;
+  color: var(--slate-4);
+  margin-top: 4px;
+}
+
+.tf-stu-assign .file-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: var(--blue-l);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-7);
+}
+
+.tf-stu-assign .fp-size {
+  font-size: 11px;
+  color: var(--slate-4);
+  font-weight: 400;
+}
+
+.tf-stu-assign .fp-remove {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--slate-4);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.tf-stu-assign .fp-remove:hover {
+  color: var(--red);
+}
+
+.tf-stu-assign .modal-box textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--slate-2);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--slate-9);
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  margin-bottom: 18px;
+}
+
+.tf-stu-assign .modal-box textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tf-stu-assign .submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tf-stu-assign .submit-btn:hover {
+  background: var(--blue-d);
+}
+
+.tf-stu-assign .submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ── Grade Modal ── */
+.tf-stu-assign .grade-display {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--green-l);
+  border-radius: 14px;
+  margin-bottom: 18px;
+}
+
+.tf-stu-assign .grade-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 0 4px #BBF7D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-stu-assign .grade-circle-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+
+.tf-stu-assign .grade-denom {
+  font-size: 10px;
+  color: #4ADE80;
+  font-weight: 600;
+}
+
+.tf-stu-assign .grade-label {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.tf-stu-assign .grade-date {
+  font-size: 12px;
+  color: var(--slate-5);
+}
+
+.tf-stu-assign .feedback-box {
+  background: var(--slate-0);
+  border: 1px solid var(--slate-2);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.tf-stu-assign .fb-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.tf-stu-assign .fb-text {
+  font-size: 14px;
+  color: var(--slate-7);
+  line-height: 1.6;
+}
+
+.tf-stu-assign .close-grade-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--slate-1);
+  color: var(--slate-7);
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tf-stu-assign .close-grade-btn:hover {
+  background: var(--slate-2);
+}
+
+@media (max-width: 768px) {
+  .tf-stu-assign .page-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tf-stu-assign .page-header h1 {
+    font-size: 20px;
+  }
+
+  .tf-stu-assign .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .tf-stu-assign .tab-pills {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .tf-stu-assign .search-wrap {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .tf-stu-assign .assignments-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tf-stu-assign .modal {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .tf-stu-assign .modal-box {
+    border-radius: 20px 20px 16px 16px;
+    padding: 22px 18px 28px;
+    max-height: 85vh;
+  }
+}

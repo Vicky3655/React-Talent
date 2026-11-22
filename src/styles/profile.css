@@ -1,0 +1,557 @@
+.tf-profile-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  min-height: 100vh;
+}
+
+.tf-profile-page .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.tf-profile-page .brand {
+  font-size: 18px;
+  font-weight: 800;
+  color: #2563EB;
+  letter-spacing: -0.01em;
+}
+
+.tf-profile-page .topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tf-profile-page .topbar .avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+  background-color: #EFF6FF;
+  display: block;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.tf-profile-page .topbar .avatar img:hover {
+  border-color: #2563EB;
+}
+
+.tf-profile-page .role-badge {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563EB;
+}
+
+.tf-profile-page .btn-link {
+  background: none;
+  border: none;
+  color: #64748B;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.tf-profile-page .btn-link:hover {
+  color: #DC2626;
+}
+
+.tf-profile-page .profile-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  min-height: calc(100vh - 64px);
+}
+
+.tf-profile-page .profile-loading,
+.tf-profile-page .profile-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 90px 20px;
+  text-align: center;
+  color: #64748B;
+}
+
+.tf-profile-page .loading-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #DBEAFE;
+  border-top-color: #2563EB;
+  border-radius: 50%;
+  animation: tfProfileSpin 0.8s linear infinite;
+}
+
+@keyframes tfProfileSpin {
+  to { transform: rotate(360deg); }
+}
+
+.tf-profile-page .profile-error-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #FEF2F2;
+  color: #DC2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.tf-profile-page .profile-error p {
+  max-width: 340px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.tf-profile-page .profile-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
+}
+
+.tf-profile-page .profile-card-banner {
+  height: 96px;
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+}
+
+.tf-profile-page .profile-card-main {
+  padding: 0 36px 40px;
+  text-align: center;
+}
+
+.tf-profile-page .profile-avatar {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  border: 4px solid #FFFFFF;
+  margin-top: -52px;
+  object-fit: cover;
+  background-color: #EFF6FF;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tf-profile-page .profile-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 16px;
+}
+
+.tf-profile-page .profile-title {
+  color: #2563EB;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.tf-profile-page .profile-bio {
+  color: #475569;
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin-top: 18px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: pre-line;
+}
+
+.tf-profile-page .profile-meta-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.tf-profile-page .meta-item {
+  text-align: center;
+}
+
+.tf-profile-page .meta-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94A3B8;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.tf-profile-page .meta-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.tf-profile-page .profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.tf-profile-page .tag-chip {
+  background-color: #EFF6FF;
+  color: #2563EB;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.tf-profile-page .profile-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: #EFF6FF;
+  color: #2563EB;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px 4px 0 0;
+}
+
+.tf-profile-page .profile-section {
+  text-align: left;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.tf-profile-page .profile-section h3 {
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94A3B8;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.tf-profile-page .profile-section p {
+  color: #334155;
+  font-size: 14.5px;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.tf-profile-page .profile-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.tf-profile-page .profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #2563EB;
+  text-decoration: none;
+  padding: 9px 16px;
+  border: 1.5px solid #DBEAFE;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tf-profile-page .profile-links a:hover {
+  background-color: #EFF6FF;
+  border-color: #2563EB;
+}
+
+.tf-profile-page .profile-link {
+  border-radius: 8px !important;
+  border-color: #BFDBFE !important;
+}
+
+.tf-profile-page .profile-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.tf-profile-page .profile-continue {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-decoration: none;
+}
+
+.tf-profile-page .profile-continue:hover {
+  color: #2563EB;
+}
+
+.tf-profile-page .btn-primary {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tf-profile-page .btn-primary:hover:not(:disabled) {
+  background-color: #1D4ED8;
+}
+
+.tf-profile-page .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tf-profile-page .btn-primary.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.tf-profile-page .btn-secondary {
+  background-color: #FFFFFF;
+  color: #2563EB;
+  border: 1.5px solid #DBEAFE;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tf-profile-page .btn-secondary:hover {
+  background-color: #EFF6FF;
+  border-color: #2563EB;
+}
+
+.tf-profile-page .form-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.05);
+}
+
+.tf-profile-page .form-card h1 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.tf-profile-page .form-sub {
+  color: #64748B;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.tf-profile-page .avatar-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tf-profile-page .avatar-preview {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #EFF6FF;
+  border: 2px dashed #CBD5E1;
+}
+
+.tf-profile-page .avatar-upload-btn {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563EB;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1.5px solid #DBEAFE;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.tf-profile-page .avatar-upload-btn:hover {
+  background-color: #EFF6FF;
+}
+
+.tf-profile-page form label:not(.avatar-upload-btn) {
+  display: block;
+  font-weight: 600;
+  font-size: 13.5px;
+  margin-bottom: 7px;
+  color: #0F172A;
+  margin-top: 18px;
+}
+
+.tf-profile-page form label:first-of-type {
+  margin-top: 0;
+}
+
+.tf-profile-page form input,
+.tf-profile-page form textarea,
+.tf-profile-page form select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  color: #0F172A;
+  resize: vertical;
+  background: #FFFFFF;
+  transition: border-color 0.2s ease;
+}
+
+.tf-profile-page form input:focus,
+.tf-profile-page form textarea:focus,
+.tf-profile-page form select:focus {
+  border-color: #2563EB;
+}
+
+.tf-profile-page form input::placeholder,
+.tf-profile-page form textarea::placeholder {
+  color: #94A3B8;
+}
+
+.tf-profile-page .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.tf-profile-page .form-row > div label {
+  margin-top: 0;
+}
+
+.tf-profile-page .form-hint {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .tf-profile-page .topbar {
+    padding: 14px 18px;
+  }
+  .tf-profile-page .profile-shell {
+    padding: 28px 14px 60px;
+  }
+  .tf-profile-page .form-card,
+  .tf-profile-page .profile-card-main {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .tf-profile-page .form-card {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .tf-profile-page .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tf-profile-page .profile-meta-grid {
+    gap: 24px;
+  }
+  .tf-profile-page .profile-actions {
+    flex-direction: column;
+  }
+  .tf-profile-page .profile-actions .btn-primary,
+  .tf-profile-page .profile-actions .btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tf-profile-page .topbar {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+  .tf-profile-page .brand {
+    font-size: 16px;
+  }
+  .tf-profile-page .topbar-actions {
+    gap: 8px;
+  }
+  .tf-profile-page .role-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .tf-profile-page .profile-shell {
+    padding: 20px 12px 60px;
+  }
+  .tf-profile-page .form-card {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+  .tf-profile-page .form-card h1 {
+    font-size: 18px;
+  }
+  .tf-profile-page .profile-card-main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .tf-profile-page .profile-card-banner {
+    height: 72px;
+  }
+  .tf-profile-page .profile-avatar {
+    width: 86px;
+    height: 86px;
+    margin-top: -43px;
+  }
+  .tf-profile-page .profile-name {
+    font-size: 20px;
+    margin-top: 12px;
+  }
+  .tf-profile-page .profile-bio {
+    font-size: 14px;
+  }
+  .tf-profile-page .profile-meta-grid {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .tf-profile-page .btn-primary,
+  .tf-profile-page .btn-secondary {
+    width: 100%;
+    padding: 13px 20px;
+  }
+  .tf-profile-page .avatar-preview {
+    width: 76px;
+    height: 76px;
+  }
+}

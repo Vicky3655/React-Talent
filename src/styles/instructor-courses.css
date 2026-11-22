@@ -1,0 +1,951 @@
+/* ============================================================
+   TALENT FLOW — Instructor Courses Page
+   ============================================================ */
+
+.tf-inst-courses .content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tf-inst-courses .content-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.tf-inst-courses .add-btn {
+  background-color: #2563EB;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.tf-inst-courses .add-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tf-inst-courses .add-btn:hover {
+  background-color: #1D4ED8;
+}
+
+.tf-inst-courses .courses-panel {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid #E2E8F0;
+}
+
+.tf-inst-courses .toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.tf-inst-courses .filters {
+  display: flex;
+  gap: 8px;
+  background-color: #F1F5F9;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.tf-inst-courses .filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  color: #475569;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+
+.tf-inst-courses .filter-btn.active {
+  background-color: #2563EB;
+  color: #FFFFFF;
+}
+
+.tf-inst-courses .filter-btn:not(.active):hover {
+  background-color: #E2E8F0;
+}
+
+.tf-inst-courses .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tf-inst-courses .dot.published {
+  background-color: #22C55E;
+}
+
+.tf-inst-courses .dot.draft {
+  background-color: #CBD5E1;
+}
+
+.tf-inst-courses .search-wrap {
+  flex: 1;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #F1F5F9;
+  border-radius: 10px;
+  padding: 9px 16px;
+}
+
+.tf-inst-courses .search-wrap svg {
+  width: 18px;
+  height: 18px;
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+.tf-inst-courses .search-wrap input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #0F172A;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-courses .search-wrap input::placeholder {
+  color: #94A3B8;
+}
+
+.tf-inst-courses .sort-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background-color: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+  margin-left: auto;
+}
+
+.tf-inst-courses .sort-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.tf-inst-courses .sort-btn:hover {
+  background-color: #1D4ED8;
+}
+
+.tf-inst-courses .sort-btn.desc svg {
+  transform: rotate(180deg);
+}
+
+.tf-inst-courses .course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tf-inst-courses .course-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.tf-inst-courses .course-card:hover {
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.tf-inst-courses .course-thumb {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #F1F5F9;
+  position: relative;
+}
+
+.tf-inst-courses .course-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.tf-inst-courses .course-card:hover .course-thumb img {
+  transform: scale(1.04);
+}
+
+.tf-inst-courses .mat-chip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.58);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 3px 9px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(4px);
+}
+
+.tf-inst-courses .mat-chip svg {
+  width: 12px;
+  height: 12px;
+}
+
+.tf-inst-courses .course-info {
+  padding: 14px 16px 46px;
+  flex-grow: 1;
+}
+
+.tf-inst-courses .course-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F172A;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.tf-inst-courses .course-desc {
+  font-size: 12px;
+  color: #64748B;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tf-inst-courses .course-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #64748B;
+}
+
+.tf-inst-courses .card-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  border-top: 1px solid #F1F5F9;
+}
+
+.tf-inst-courses .card-action-btn {
+  flex: 1;
+  padding: 10px 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tf-inst-courses .card-action-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.tf-inst-courses .card-action-btn:hover {
+  background: #F8FAFC;
+  color: #2563EB;
+}
+
+.tf-inst-courses .card-action-btn + .card-action-btn {
+  border-left: 1px solid #F1F5F9;
+}
+
+.tf-inst-courses .card-action-btn.primary {
+  color: #2563EB;
+}
+
+.tf-inst-courses .empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #94A3B8;
+}
+
+.tf-inst-courses .empty-state svg {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  display: block;
+  opacity: 0.4;
+}
+
+.tf-inst-courses .empty-state p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Modal */
+.tf-inst-courses .modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.48);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  backdrop-filter: blur(4px);
+  padding: 16px;
+}
+
+.tf-inst-courses .modal.open {
+  display: flex;
+}
+
+.tf-inst-courses .modal-content {
+  background: #FFFFFF;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 540px;
+  padding: 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tf-inst-courses .modal-content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 18px;
+}
+
+.tf-inst-courses .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #94A3B8;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.tf-inst-courses .close-btn:hover {
+  color: #475569;
+}
+
+.tf-inst-courses .modal-tabs {
+  display: flex;
+  gap: 4px;
+  background: #F1F5F9;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 22px;
+}
+
+.tf-inst-courses .modal-tab {
+  flex: 1;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  color: #64748B;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tf-inst-courses .modal-tab.active {
+  background: #FFFFFF;
+  color: #2563EB;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.tf-inst-courses .modal-content label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+
+.tf-inst-courses .modal-content label:first-child {
+  margin-top: 0;
+}
+
+.tf-inst-courses .req {
+  color: #EF4444;
+}
+
+.tf-inst-courses .modal-content input[type='text'],
+.tf-inst-courses .modal-content input[type='url'],
+.tf-inst-courses .modal-content input[type='number'],
+.tf-inst-courses .modal-content select,
+.tf-inst-courses .modal-content textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0F172A;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  background: #fff;
+  resize: vertical;
+}
+
+.tf-inst-courses .modal-content input:focus,
+.tf-inst-courses .modal-content select:focus,
+.tf-inst-courses .modal-content textarea:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tf-inst-courses .step-hint {
+  font-size: 13px;
+  color: #64748B;
+  margin-bottom: 14px;
+}
+
+.tf-inst-courses .thumb-upload-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+  align-items: flex-start;
+}
+
+.tf-inst-courses .thumb-drop {
+  flex: 1;
+  border: 2px dashed #CBD5E1;
+  border-radius: 10px;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: center;
+}
+
+.tf-inst-courses .thumb-drop:hover,
+.tf-inst-courses .thumb-drop.drag-over {
+  border-color: #2563EB;
+  background: #EFF6FF;
+}
+
+.tf-inst-courses .thumb-drop svg {
+  width: 28px;
+  height: 28px;
+  color: #94A3B8;
+}
+
+.tf-inst-courses .thumb-drop span {
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.tf-inst-courses .thumb-preview-wrap {
+  width: 90px;
+  height: 70px;
+  border-radius: 8px;
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tf-inst-courses .thumb-preview-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tf-inst-courses .thumb-placeholder-text {
+  font-size: 11px;
+  color: #94A3B8;
+  text-align: center;
+  padding: 4px;
+}
+
+.tf-inst-courses .file-drop-zone {
+  border: 2px dashed #CBD5E1;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  margin-bottom: 16px;
+}
+
+.tf-inst-courses .file-drop-zone:hover,
+.tf-inst-courses .file-drop-zone.drag-over {
+  border-color: #2563EB;
+  background: #EFF6FF;
+}
+
+.tf-inst-courses .drop-icon {
+  width: 36px;
+  height: 36px;
+  color: #94A3B8;
+  margin: 0 auto 8px;
+  display: block;
+}
+
+.tf-inst-courses .file-drop-zone p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.tf-inst-courses .file-drop-zone span {
+  font-size: 12px;
+  color: #94A3B8;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.tf-inst-courses .browse-btn {
+  padding: 8px 22px;
+  background: #2563EB;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-courses .uploaded-files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tf-inst-courses .file-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+}
+
+.tf-inst-courses .file-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.tf-inst-courses .file-icon.pdf { background: #FEE2E2; color: #DC2626; }
+.tf-inst-courses .file-icon.doc { background: #DBEAFE; color: #2563EB; }
+.tf-inst-courses .file-icon.ppt { background: #FFEDD5; color: #EA580C; }
+.tf-inst-courses .file-icon.vid { background: #F3E8FF; color: #9333EA; }
+.tf-inst-courses .file-icon.img { background: #D1FAE5; color: #059669; }
+.tf-inst-courses .file-icon.zip { background: #FEF3C7; color: #D97706; }
+.tf-inst-courses .file-icon.other { background: #F1F5F9; color: #64748B; }
+
+.tf-inst-courses .file-name {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0F172A;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tf-inst-courses .file-size {
+  font-size: 11px;
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+.tf-inst-courses .file-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #CBD5E1;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.tf-inst-courses .file-remove:hover {
+  color: #EF4444;
+}
+
+.tf-inst-courses .file-remove svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tf-inst-courses .step-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.tf-inst-courses .next-btn,
+.tf-inst-courses .back-btn {
+  padding: 10px 22px;
+  border-radius: 9px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-courses .next-btn {
+  background: #2563EB;
+  color: #fff;
+}
+
+.tf-inst-courses .next-btn:hover {
+  background: #1D4ED8;
+}
+
+.tf-inst-courses .back-btn {
+  background: #F1F5F9;
+  color: #475569;
+}
+
+.tf-inst-courses .back-btn:hover {
+  background: #E2E8F0;
+}
+
+.tf-inst-courses .submit-btn {
+  padding: 10px 28px;
+  background: #16A34A;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-courses .submit-btn:hover {
+  background: #15803D;
+}
+
+.tf-inst-courses .toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.tf-inst-courses .toggle {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+}
+
+.tf-inst-courses .toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.tf-inst-courses .toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: #CBD5E1;
+  border-radius: 99px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.tf-inst-courses .toggle-slider::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.tf-inst-courses .toggle input:checked + .toggle-slider {
+  background: #2563EB;
+}
+
+.tf-inst-courses .toggle input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+}
+
+.tf-inst-courses .toggle-label {
+  font-size: 13px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Materials Slide-over Drawer */
+.tf-inst-courses .drawer {
+  position: fixed;
+  top: 0;
+  right: -480px;
+  width: 460px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.12);
+  z-index: 420;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-inst-courses .drawer.open {
+  right: 0;
+}
+
+.tf-inst-courses .drawer-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tf-inst-courses .drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 12px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.tf-inst-courses .drawer-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.tf-inst-courses .drawer-header .close-btn {
+  position: static;
+  font-size: 22px;
+}
+
+.tf-inst-courses .drawer-subtitle {
+  padding: 10px 24px 14px;
+  font-size: 13px;
+  color: #64748B;
+}
+
+.tf-inst-courses .drawer-tabs {
+  display: flex;
+  padding: 0 24px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.tf-inst-courses .drawer-tab {
+  padding: 10px 18px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748B;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tf-inst-courses .drawer-tab.active {
+  color: #2563EB;
+  border-bottom-color: #2563EB;
+}
+
+.tf-inst-courses .drawer-tab-pane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+}
+
+.tf-inst-courses .drawer-upload-bar {
+  margin-bottom: 16px;
+}
+
+.tf-inst-courses .drawer-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  background: #EFF6FF;
+  color: #2563EB;
+  border: 1px solid #BFDBFE;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-inst-courses .drawer-upload-btn:hover {
+  background: #DBEAFE;
+}
+
+.tf-inst-courses .drawer-files {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tf-inst-courses .activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tf-inst-courses .activity-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  background: #F8FAFC;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+}
+
+.tf-inst-courses .activity-item img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.tf-inst-courses .activity-body {
+  flex: 1;
+}
+
+.tf-inst-courses .activity-body strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F172A;
+  display: block;
+}
+
+.tf-inst-courses .activity-body p {
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.tf-inst-courses .activity-body .at {
+  font-size: 11px;
+  color: #94A3B8;
+  margin-top: 3px;
+  display: block;
+}
+
+.tf-inst-courses .activity-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94A3B8;
+  font-size: 13px;
+}
+
+.tf-inst-courses .drawer-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 410;
+}
+
+.tf-inst-courses .drawer-backdrop.open {
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .tf-inst-courses .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tf-inst-courses .course-grid {
+    grid-template-columns: 1fr;
+  }
+  .tf-inst-courses .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tf-inst-courses .search-wrap {
+    max-width: 100%;
+  }
+  .tf-inst-courses .sort-btn {
+    margin-left: 0;
+  }
+}

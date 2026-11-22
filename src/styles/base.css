@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F4F5F7;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+:root {
+  --blue: #2563EB;
+  --blue-h: #1D4ED8;
+  --blue-l: #EFF6FF;
+  --blue-m: #DBEAFE;
+  --slate-0: #F8FAFC;
+  --slate-1: #F1F5F9;
+  --slate-2: #E2E8F0;
+  --slate-3: #CBD5E1;
+  --slate-4: #94A3B8;
+  --slate-5: #64748B;
+  --slate-6: #475569;
+  --slate-7: #334155;
+  --slate-8: #1E293B;
+  --slate-9: #0F172A;
+  --green: #16A34A;
+  --green-l: #F0FDF4;
+  --amber: #D97706;
+  --amber-l: #FFFBEB;
+  --orange: #EA580C;
+  --orange-l: #FFF7ED;
+  --red: #DC2626;
+  --red-l: #FEF2F2;
+  --purple: #7C3AED;
+  --purple-l: #FAF5FF;
+  --cyan: #0891B2;
+  --cyan-l: #ECFEFF;
+  --nav-h: 64px;
+  --sidebar-w: 76px;
+}
+
+/* ── Splash Loader ───────────────────────────────────────── */
+.tf-splash-page #loader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #F8FAFC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s;
+}
+
+.tf-splash-page .logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  animation: tfFadeInPulse 1.5s ease-in-out infinite;
+}
+
+.tf-splash-page .loader-icon,
+.tf-splash-page .loader-text {
+  color: #2563EB;
+  height: auto;
+}
+
+.tf-splash-page .loader-text {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+.tf-splash-page.loaded #loader {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes tfFadeInPulse {
+  0% { opacity: 0.5; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.5; transform: scale(0.98); }
+}
+
+@media (max-width: 480px) {
+  .tf-splash-page .logo-wrapper {
+    gap: 10px;
+  }
+  .tf-splash-page .loader-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .tf-splash-page .loader-text {
+    font-size: 32px;
+    letter-spacing: -0.019em;
+    white-space: nowrap;
+  }
+}

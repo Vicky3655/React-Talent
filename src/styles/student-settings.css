@@ -1,0 +1,412 @@
+/* ============================================================
+   TALENT FLOW — Student Settings Page
+   ============================================================ */
+
+.tf-stu-settings .settings-nav {
+  position: fixed;
+  top: 0;
+  left: 80px;
+  right: 0;
+  height: 56px;
+  background: #EFF6FF;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 48px;
+  gap: 20px;
+  z-index: 98;
+}
+
+.tf-stu-settings .settings-nav-btn {
+  flex: 1;
+  max-width: 200px;
+  text-align: center;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: #64748B;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.tf-stu-settings .settings-nav-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+.tf-stu-settings .settings-nav-btn.active {
+  background: #FFFFFF;
+  color: #2563EB;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.tf-stu-settings .page-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #0F172A;
+}
+
+.tf-stu-settings .tab-heading {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #0F172A;
+}
+
+.tf-stu-settings .settings-content-wrap {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.tf-stu-settings .avatar-section {
+  flex-shrink: 0;
+}
+
+.tf-stu-settings .avatar-wrap-lg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.tf-stu-settings .avatar-wrap-lg img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #EFF6FF;
+  background: #EFF6FF;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.tf-stu-settings .edit-avatar-btn {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 34px;
+  height: 34px;
+  background: white;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #334155;
+}
+
+.tf-stu-settings .edit-avatar-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tf-stu-settings .edit-avatar-btn:hover {
+  background: #F1F5F9;
+}
+
+.tf-stu-settings .form-section {
+  flex-grow: 1;
+  max-width: 600px;
+}
+
+.tf-stu-settings .profile-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 24px;
+}
+
+.tf-stu-settings .profile-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.tf-stu-settings .field-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tf-stu-settings .field-row label {
+  width: 130px;
+  flex-shrink: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.tf-stu-settings .field-row input,
+.tf-stu-settings .field-row select {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #0F172A;
+  background: white;
+  outline: none;
+  max-width: 420px;
+}
+
+.tf-stu-settings .field-row input:focus,
+.tf-stu-settings .field-row select:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.tf-stu-settings .field-row input[readonly] {
+  background: #F1F5F9;
+  color: #94A3B8;
+  cursor: not-allowed;
+}
+
+.tf-stu-settings .save-btn {
+  background: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tf-stu-settings .save-btn:hover {
+  background: #1D4ED8;
+}
+
+.tf-stu-settings .save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.tf-stu-settings .save-toast {
+  display: inline-block;
+  margin-left: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #16A34A;
+}
+
+.tf-stu-settings .password-wrap {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+.tf-stu-settings .password-wrap:focus-within {
+  border-color: #2563EB;
+}
+
+.tf-stu-settings .password-wrap input {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: #0F172A;
+  background: transparent;
+}
+
+.tf-stu-settings .eye-btn {
+  padding: 0 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+}
+
+.tf-stu-settings .eye-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tf-stu-settings .strength-bar {
+  height: 5px;
+  background: #E2E8F0;
+  border-radius: 99px;
+  margin-top: 8px;
+  overflow: hidden;
+  max-width: 420px;
+}
+
+.tf-stu-settings .strength-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.4s, background 0.4s;
+}
+
+.tf-stu-settings .strength-label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 4px;
+  display: block;
+}
+
+.tf-stu-settings .toggle-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+  max-width: 580px;
+}
+
+.tf-stu-settings .toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.tf-stu-settings .toggle-row:last-child {
+  border-bottom: none;
+}
+
+.tf-stu-settings .toggle-label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0F172A;
+  margin-bottom: 3px;
+}
+
+.tf-stu-settings .toggle-desc {
+  font-size: 12.5px;
+  color: #64748B;
+}
+
+.tf-stu-settings .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.tf-stu-settings .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.tf-stu-settings .slider {
+  position: absolute;
+  inset: 0;
+  background: #E2E8F0;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tf-stu-settings .slider::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tf-stu-settings .toggle-switch input:checked + .slider {
+  background: #2563EB;
+}
+
+.tf-stu-settings .toggle-switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.tf-stu-settings .danger-zone {
+  margin-top: 32px;
+  padding: 20px;
+  border: 1px solid #FEF2F2;
+  border-radius: 12px;
+  background: #FEF2F2;
+  max-width: 520px;
+}
+
+.tf-stu-settings .danger-zone h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #DC2626;
+  margin-bottom: 12px;
+}
+
+.tf-stu-settings .danger-btn {
+  background: #DC2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.tf-stu-settings .danger-btn:hover {
+  background: #B91C1C;
+}
+
+@media (max-width: 768px) {
+  .tf-stu-settings .settings-nav {
+    left: 0;
+    padding: 0 12px;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .tf-stu-settings .settings-nav-btn {
+    flex: 1;
+    max-width: none;
+    padding: 6px 8px;
+    font-size: 12.5px;
+  }
+
+  .tf-stu-settings .settings-content-wrap {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .tf-stu-settings .field-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .tf-stu-settings .field-row label {
+    width: auto;
+  }
+
+  .tf-stu-settings .field-row input,
+  .tf-stu-settings .field-row select,
+  .tf-stu-settings .password-wrap {
+    max-width: none;
+  }
+}

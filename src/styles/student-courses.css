@@ -1,0 +1,918 @@
+/* ============================================================
+   TALENT FLOW — Student Courses Catalog Page
+   ============================================================ */
+
+.tf-stu-courses .page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-courses .page-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--slate-9);
+  margin-bottom: 4px;
+}
+
+.tf-stu-courses .page-sub {
+  font-size: 14px;
+  color: var(--slate-5);
+}
+
+.tf-stu-courses .header-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tf-stu-courses .chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tf-stu-courses .chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .chip-total {
+  background: var(--slate-1);
+  color: var(--slate-7);
+}
+
+.tf-stu-courses .chip-total .chip-dot {
+  background: var(--slate-5);
+}
+
+.tf-stu-courses .chip-enrolled {
+  background: var(--green-l);
+  color: var(--green);
+}
+
+.tf-stu-courses .chip-enrolled .chip-dot {
+  background: var(--green);
+}
+
+.tf-stu-courses .chip-available {
+  background: var(--blue-l);
+  color: var(--blue);
+}
+
+.tf-stu-courses .chip-available .chip-dot {
+  background: var(--blue);
+}
+
+/* ── Filter Bar ── */
+.tf-stu-courses .filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-courses .tab-pills {
+  display: flex;
+  gap: 4px;
+}
+
+.tf-stu-courses .tab-pill {
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-5);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.tf-stu-courses .tab-pill.active {
+  background: var(--blue-l);
+  color: var(--blue);
+}
+
+.tf-stu-courses .tab-pill:hover:not(.active) {
+  background: var(--slate-1);
+}
+
+.tf-stu-courses .search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: 10px;
+  padding: 9px 14px;
+  min-width: 260px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tf-stu-courses .search-wrap:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tf-stu-courses .search-wrap svg {
+  width: 16px;
+  height: 16px;
+  color: var(--slate-4);
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .search-wrap input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: var(--slate-9);
+  width: 100%;
+  font-family: inherit;
+}
+
+/* ── Courses Grid ── */
+.tf-stu-courses .courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.tf-stu-courses .course-card {
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  position: relative;
+}
+
+.tf-stu-courses .course-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  border-color: #BFDBFE;
+}
+
+.tf-stu-courses .course-card-highlight {
+  animation: stuCoursePulse 1.6s ease;
+}
+
+@keyframes stuCoursePulse {
+  0%,
+  100% {
+    box-shadow: var(--shadow);
+    border-color: var(--slate-2);
+  }
+  20% {
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.28);
+    border-color: var(--blue);
+  }
+}
+
+.tf-stu-courses .course-thumb {
+  width: 100%;
+  height: 160px;
+  background: var(--slate-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tf-stu-courses .course-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tf-stu-courses .course-card:hover .course-thumb img {
+  transform: scale(1.03);
+}
+
+.tf-stu-courses .course-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  color: var(--slate-9);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tf-stu-courses .course-badge.is-enrolled {
+  background: var(--green);
+  color: white;
+}
+
+.tf-stu-courses .course-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.tf-stu-courses .course-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--slate-9);
+  line-height: 1.35;
+}
+
+.tf-stu-courses .course-desc {
+  font-size: 13px;
+  color: var(--slate-5);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tf-stu-courses .course-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate-4);
+  margin-top: 2px;
+}
+
+.tf-stu-courses .course-meta svg {
+  width: 14px;
+  height: 14px;
+  color: var(--slate-4);
+}
+
+.tf-stu-courses .course-instructor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  margin-top: auto;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  border: 1px solid transparent;
+  background: transparent;
+  width: calc(100% + 20px);
+  text-align: left;
+  font-family: inherit;
+}
+
+.tf-stu-courses .course-instructor:hover {
+  background: var(--blue-l);
+  border-color: #BFDBFE;
+}
+
+.tf-stu-courses .course-instructor img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--blue-l);
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .course-instructor-info {
+  font-size: 12.5px;
+  color: var(--slate-5);
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-stu-courses .course-instructor-info strong {
+  color: var(--blue);
+  font-weight: 700;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tf-stu-courses .inst-view-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--blue);
+  background: white;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #BFDBFE;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.tf-stu-courses .course-btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 11px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.18s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tf-stu-courses .course-btn:hover:not(:disabled) {
+  background: var(--blue-d);
+}
+
+.tf-stu-courses .course-btn.is-enrolled {
+  background: var(--green);
+  color: white;
+}
+
+.tf-stu-courses .course-btn.is-enrolled:hover {
+  background: var(--green-d);
+}
+
+.tf-stu-courses .course-btn:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.tf-stu-courses .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--slate-4);
+  text-align: center;
+}
+
+.tf-stu-courses .empty-state svg {
+  margin-bottom: 14px;
+  opacity: 0.35;
+}
+
+.tf-stu-courses .empty-state p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ── Modals ── */
+.tf-stu-courses .modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+}
+
+.tf-stu-courses .modal.open {
+  display: flex;
+}
+
+.tf-stu-courses .modal-drag-handle {
+  display: none;
+}
+
+.tf-stu-courses .modal-box {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 560px;
+  padding: 28px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tf-stu-courses .modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--slate-1);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--slate-5);
+  z-index: 10;
+}
+
+.tf-stu-courses .modal-close:hover {
+  background: var(--slate-2);
+}
+
+.tf-stu-courses .modal-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.tf-stu-courses .modal-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--green-l);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .modal-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-stu-courses .modal-header h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--slate-9);
+  line-height: 1.3;
+}
+
+.tf-stu-courses .modal-sub {
+  font-size: 13px;
+  color: var(--slate-5);
+  margin-top: 2px;
+}
+
+.tf-stu-courses .instructor-notes-box {
+  background: var(--slate-0);
+  border: 1px solid var(--slate-2);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.tf-stu-courses .in-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.tf-stu-courses .in-text {
+  font-size: 13.5px;
+  color: var(--slate-7);
+  line-height: 1.5;
+}
+
+.tf-stu-courses .files-heading {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-9);
+  margin-bottom: 10px;
+}
+
+.tf-stu-courses .resources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.tf-stu-courses .resource-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.tf-stu-courses .resource-item:hover {
+  border-color: #BFDBFE;
+  box-shadow: var(--shadow);
+}
+
+.tf-stu-courses .resource-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.tf-stu-courses .resource-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--blue-l);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .resource-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--slate-9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tf-stu-courses .resource-sub {
+  font-size: 11.5px;
+  color: var(--slate-4);
+  margin-top: 2px;
+}
+
+.tf-stu-courses .btn-open-file {
+  padding: 8px 16px;
+  background: var(--blue-l);
+  color: var(--blue);
+  border: 1px solid #BFDBFE;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .btn-open-file:hover {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+
+.tf-stu-courses .close-modal-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--slate-1);
+  color: var(--slate-7);
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tf-stu-courses .close-modal-btn:hover {
+  background: var(--slate-2);
+}
+
+/* ── Public Instructor Profile Modal ── */
+.tf-stu-courses .instructor-modal-box {
+  padding: 0;
+  overflow-y: auto;
+}
+
+.tf-stu-courses .inst-banner {
+  height: 90px;
+  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 60%, #60A5FA 100%);
+  position: relative;
+  padding: 14px 56px 14px 18px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tf-stu-courses .inst-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  height: 24px;
+}
+
+.tf-stu-courses .inst-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0 24px;
+  margin-top: -36px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.tf-stu-courses .inst-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3.5px solid white;
+  background: var(--blue-l);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .inst-header-text {
+  min-width: 0;
+}
+
+.tf-stu-courses .inst-header-text h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--slate-9);
+  line-height: 1.25;
+}
+
+.tf-stu-courses .inst-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 2px;
+}
+
+.tf-stu-courses .inst-body {
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tf-stu-courses .inst-section-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--slate-4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.tf-stu-courses .inst-bio {
+  font-size: 13.5px;
+  color: var(--slate-7);
+  line-height: 1.55;
+}
+
+.tf-stu-courses .inst-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.tf-stu-courses .inst-detail-card {
+  background: var(--slate-0);
+  border: 1px solid var(--slate-2);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.tf-stu-courses .inst-detail-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-4);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.tf-stu-courses .inst-detail-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-9);
+  line-height: 1.4;
+}
+
+.tf-stu-courses .inst-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tf-stu-courses .inst-tag {
+  background: var(--blue-l);
+  color: var(--blue);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.tf-stu-courses .inst-links-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tf-stu-courses .inst-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: var(--slate-1);
+  color: var(--slate-7);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.tf-stu-courses .inst-social-btn:hover {
+  background: var(--slate-2);
+  color: var(--slate-9);
+}
+
+.tf-stu-courses .inst-courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tf-stu-courses .inst-course-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: white;
+  border: 1px solid var(--slate-2);
+  border-radius: 10px;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.tf-stu-courses .inst-course-item:hover {
+  border-color: var(--blue);
+}
+
+.tf-stu-courses .inst-course-thumb {
+  width: 44px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: var(--slate-1);
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .inst-course-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.tf-stu-courses .inst-course-lessons {
+  font-size: 11px;
+  color: var(--slate-4);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.tf-stu-courses .inst-course-chevron {
+  color: var(--slate-3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .tf-stu-courses .page-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tf-stu-courses .page-header h1 {
+    font-size: 20px;
+  }
+
+  .tf-stu-courses .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .tf-stu-courses .search-wrap {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .tf-stu-courses .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .tf-stu-courses .modal {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .tf-stu-courses .modal-box {
+    border-radius: 24px 24px 0 0;
+    padding: 16px 20px 24px;
+    max-height: 88vh;
+    max-width: 100%;
+  }
+
+  .tf-stu-courses .modal-box.instructor-modal-box {
+    padding: 0;
+  }
+
+  .tf-stu-courses .modal-drag-handle {
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: var(--slate-3);
+    border-radius: 99px;
+    margin: 0 auto 16px;
+  }
+
+  .tf-stu-courses .instructor-modal-box .modal-drag-handle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 5;
+  }
+
+  .tf-stu-courses .instructor-modal-box .modal-close {
+    background: rgba(255, 255, 255, 0.22);
+    color: #fff;
+    backdrop-filter: blur(4px);
+  }
+
+  .tf-stu-courses .inst-details-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .tf-stu-courses .inst-banner {
+    height: 75px;
+  }
+
+  .tf-stu-courses .inst-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .tf-stu-courses .inst-header {
+    margin-top: -30px;
+    padding: 0 16px;
+  }
+
+  .tf-stu-courses .inst-body {
+    padding: 0 16px 20px;
+  }
+}

@@ -1,0 +1,763 @@
+/* ============================================================
+   TALENT FLOW — Instructor Dashboard Page
+   ============================================================ */
+
+.tf-inst-dash .welcome-banner {
+  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 60%, #3B82F6 100%);
+  border-radius: 20px;
+  padding: 28px 32px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  animation: tfInstSlideDown 0.45s ease both;
+}
+
+@keyframes tfInstSlideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tf-inst-dash .wb-greeting {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.tf-inst-dash .wb-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.tf-inst-dash .wb-sub {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.tf-inst-dash .wb-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.tf-inst-dash .wb-streak {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 14px 20px;
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
+}
+
+.tf-inst-dash .streak-flame {
+  font-size: 28px;
+}
+
+.tf-inst-dash .streak-count {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'DM Mono', monospace;
+}
+
+.tf-inst-dash .streak-label {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.tf-inst-dash .dismiss-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf-inst-dash .dismiss-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Quick Stats */
+.tf-inst-dash .quick-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.tf-inst-dash .qs-card {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.tf-inst-dash .qs-card:hover {
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.12);
+  transform: translateY(-3px);
+}
+
+.tf-inst-dash .qs-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-inst-dash .qs-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tf-inst-dash .qs-label {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.tf-inst-dash .qs-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1;
+}
+
+.tf-inst-dash .qs-spark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.35;
+}
+
+/* Two Column Grid */
+.tf-inst-dash .two-col {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: start;
+}
+
+.tf-inst-dash .col-left,
+.tf-inst-dash .col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tf-inst-dash .section-card {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.tf-inst-dash .sc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tf-inst-dash .sc-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.tf-inst-dash .sc-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2563EB;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.tf-inst-dash .sc-link:hover {
+  color: #1D4ED8;
+}
+
+.tf-inst-dash .badge-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.tf-inst-dash .badge-pill.blue {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.tf-inst-dash .badge-pill.green {
+  background: #F0FDF4;
+  color: #16A34A;
+}
+
+.tf-inst-dash .badge-pill.red {
+  background: #FEF2F2;
+  color: #DC2626;
+}
+
+.tf-inst-dash .tab-pills {
+  display: flex;
+  gap: 4px;
+}
+
+.tf-inst-dash .tab-pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tf-inst-dash .tab-pill.active {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.tf-inst-dash .tab-pill:hover:not(.active) {
+  background: #F1F5F9;
+}
+
+/* Course List on Dashboard */
+.tf-inst-dash .courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tf-inst-dash .course-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tf-inst-dash .course-row:hover {
+  border-color: #2563EB;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+.tf-inst-dash .cr-thumb {
+  width: 56px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #F1F5F9;
+  flex-shrink: 0;
+}
+
+.tf-inst-dash .cr-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-inst-dash .cr-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tf-inst-dash .cr-meta {
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+/* Submissions List */
+.tf-inst-dash .assign-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tf-inst-dash .assign-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  transition: border-color 0.2s;
+}
+
+.tf-inst-dash .assign-item:hover {
+  border-color: #BFDBFE;
+}
+
+.tf-inst-dash .ai-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tf-inst-dash .ai-status-dot.pending {
+  background: #F59E0B;
+}
+
+.tf-inst-dash .ai-status-dot.submitted {
+  background: #2563EB;
+}
+
+.tf-inst-dash .ai-status-dot.graded {
+  background: #16A34A;
+}
+
+.tf-inst-dash .ai-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-inst-dash .ai-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 2px;
+}
+
+.tf-inst-dash .ai-course {
+  font-size: 12px;
+  color: #64748B;
+}
+
+.tf-inst-dash .ai-grade {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7C3AED;
+  font-family: 'DM Mono', monospace;
+}
+
+.tf-inst-dash .ai-action-btn {
+  padding: 6px 14px;
+  background: #EFF6FF;
+  color: #2563EB;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.tf-inst-dash .ai-action-btn:hover {
+  background: #DBEAFE;
+}
+
+.tf-inst-dash .empty-state {
+  text-align: center;
+  padding: 28px 16px;
+  color: #94A3B8;
+  font-size: 13.5px;
+}
+
+/* Weekly Chart */
+.tf-inst-dash .weekly-chart {
+  margin-bottom: 16px;
+}
+
+.tf-inst-dash .wc-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 100px;
+  padding: 0 4px;
+  margin-bottom: 6px;
+}
+
+.tf-inst-dash .wc-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.tf-inst-dash .wc-bar {
+  width: 100%;
+  border-radius: 6px;
+  background: #EFF6FF;
+  transition: height 0.7s ease, background 0.2s;
+  cursor: pointer;
+}
+
+.tf-inst-dash .wc-bar.today {
+  background: #2563EB;
+}
+
+.tf-inst-dash .wc-bar:hover {
+  background: #1D4ED8;
+}
+
+.tf-inst-dash .wc-val {
+  font-size: 10px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.tf-inst-dash .wc-labels {
+  display: flex;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.tf-inst-dash .wc-labels span {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.tf-inst-dash .wc-summary {
+  display: flex;
+  align-items: center;
+  background: #F8FAFC;
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.tf-inst-dash .wcs-item {
+  flex: 1;
+  text-align: center;
+}
+
+.tf-inst-dash .wcs-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.tf-inst-dash .wcs-lbl {
+  font-size: 11px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.tf-inst-dash .wcs-sep {
+  width: 1px;
+  height: 32px;
+  background: #E2E8F0;
+}
+
+/* Radar & Deadlines */
+.tf-inst-dash .participation-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.tf-inst-dash .radar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  justify-content: center;
+}
+
+.tf-inst-dash .rl-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.tf-inst-dash .rl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.tf-inst-dash .deadline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tf-inst-dash .dl-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #F8FAFC;
+  border: 1px solid #F1F5F9;
+}
+
+.tf-inst-dash .dl-date-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tf-inst-dash .dl-date-box.urgent {
+  background: #FEF2F2;
+}
+
+.tf-inst-dash .dl-date-box.normal {
+  background: #EFF6FF;
+}
+
+.tf-inst-dash .dl-day {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tf-inst-dash .dl-date-box.urgent .dl-day {
+  color: #DC2626;
+}
+
+.tf-inst-dash .dl-date-box.normal .dl-day {
+  color: #2563EB;
+}
+
+.tf-inst-dash .dl-month {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1px;
+  color: #64748B;
+}
+
+.tf-inst-dash .dl-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-inst-dash .dl-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tf-inst-dash .dl-course {
+  font-size: 11px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.tf-inst-dash .dl-days-left {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tf-inst-dash .dl-days-left.urgent {
+  color: #DC2626;
+}
+
+.tf-inst-dash .dl-days-left.normal {
+  color: #2563EB;
+}
+
+/* Dashboard Modals */
+.tf-inst-dash .modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+
+.tf-inst-dash .modal.open {
+  display: flex;
+}
+
+.tf-inst-dash .modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  padding: 28px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tf-inst-dash .modal-content h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: #0F172A;
+}
+
+.tf-inst-dash .modal-course-label {
+  font-size: 13px;
+  color: #64748B;
+  margin-bottom: 18px;
+}
+
+.tf-inst-dash .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #F1F5F9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 22px;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tf-inst-dash .close-btn:hover {
+  background: #E2E8F0;
+}
+
+.tf-inst-dash .modal-content label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+.tf-inst-dash .modal-content input[type='text'],
+.tf-inst-dash .modal-content input[type='date'],
+.tf-inst-dash .modal-content input[type='number'],
+.tf-inst-dash .modal-content select,
+.tf-inst-dash .modal-content textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0F172A;
+  font-family: inherit;
+  outline: none;
+  background: white;
+}
+
+.tf-inst-dash .modal-content input:focus,
+.tf-inst-dash .modal-content select:focus,
+.tf-inst-dash .modal-content textarea:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.tf-inst-dash .file-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #EFF6FF;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.tf-inst-dash .submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.tf-inst-dash .submit-btn:hover {
+  background: #1D4ED8;
+}
+
+@media (max-width: 1100px) {
+  .tf-inst-dash .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tf-inst-dash .welcome-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 20px 18px;
+  }
+
+  .tf-inst-dash .quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .tf-inst-dash .modal-content {
+    max-width: 100%;
+    border-radius: 16px;
+    padding: 22px 18px;
+  }
+}
